@@ -17,7 +17,7 @@ def pacienteCreate(request):
         form = PacienteForm(request.POST)
         if form.is_valid():
             createPaciente = form
-            messages.success(request, 'Paciente creado exitosamente')
+            messages.add_message(request, messages.SUCCESS, 'Paciente creado')
             return HttpResponseRedirect(reverse('pacienteList'))
         else:
             print(form.errors)
